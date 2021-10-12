@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Problem Statement</title>
+    </head>
+    <body>
+        <p>In this question, you have to develop a JDBC code for the following scenario.</p>
+        <p>&nbsp;</p>
+        <p>Consider two&nbsp;tables - subject and, student&nbsp;shown as follows.</p>
+        <p>&nbsp;</p>
+
+        <p><img alt="" height="126" src="https://hrcdn.net/s3_pub/istreet-assets/0Nb07yDA6BXxXkSzsYDe3A/Untitled%20Diagram.png" width="402" /></p>
+
+        <p>&nbsp;</p>
+
+        <p>&nbsp;</p>
+
+        <p>Create a db.sql file and write SQL queries to create the tables &#39;subject&#39; and &#39;student&#39;.</p>
+
+        <p>Complete the code inside the RunningScripts.java file to read the db.sql file. This file runs automatically and creates the tables.</p>
+
+        <p>&nbsp;</p>
+
+        <p>Complete the DbUtil class to create database connections.&nbsp;The dburl to be used is &quot;jdbc:mysql://localhost:3306/mydb&quot;.</p>
+
+        <p>Complete the following methods in DbOperations class:</p>
+
+        <p>&nbsp;</p>
+
+        <ul>
+            <li>public boolean insertSubject(String type): Takes a&nbsp;<strong>subject name,</strong>&nbsp;inserts it into the&nbsp;<strong>Subject&nbsp;</strong>table, and returns a Boolean result</li>
+            <li>public ArrayList getSubjectById(int id): Returns an&nbsp;<strong>ArrayList</strong>&nbsp;containing the record data for the given id in the&nbsp;<strong>Subject</strong>&nbsp;table. For example, [2, &#39;Science&#39;]&nbsp;</li>
+            <li>public ResultSet getAllSubjects(): Returns all the records in the&nbsp;<strong>Subjects</strong>&nbsp;table as a&nbsp;<strong>ResultSet</strong></li>
+            <li>public boolean insertStudent(String student_name, float score, String name): Takes a&nbsp;<strong>student&#39;s name, score, and name (Subject),</strong>&nbsp;inserts it into the&nbsp;<strong>Student</strong>&nbsp;table, and returns a Boolean result&nbsp;</li>
+            <li>public ArrayList getStudentById(int id): Returns an&nbsp;<strong>ArrayList</strong>&nbsp;containing the record data for the given id in the&nbsp;<strong>Student</strong>&nbsp;table. For example, [2, &#39;Smith&#39;, 89.0, 2]&nbsp;</li>
+            <li>public ResultSet getAllStudents(): Returns all the records in the&nbsp;<strong>Student</strong>&nbsp;table as a&nbsp;<strong>ResultSet</strong>.</li>
+        </ul>
+
+        <h3>Please use VS Code to write solution</h3>
+
+    </body>
+</html>
