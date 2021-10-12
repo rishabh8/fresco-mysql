@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: com.fresco.jdbcTests.JdbcTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.363 sec <<< FAILURE! - in com.fresco.jdbcTests.JdbcTest
+test2(com.fresco.jdbcTests.JdbcTest)  Time elapsed: 0.26 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.fresco.jdbcTests.JdbcTest.test2(JdbcTest.java:35)
+
+test3(com.fresco.jdbcTests.JdbcTest)  Time elapsed: 0.028 sec  <<< ERROR!
+java.sql.SQLException: Illegal operation on empty result set.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1055)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:956)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926)
+	at com.mysql.jdbc.ResultSetImpl.checkRowPos(ResultSetImpl.java:815)
+	at com.mysql.jdbc.ResultSetImpl.getInt(ResultSetImpl.java:2593)
+	at com.mysql.jdbc.ResultSetImpl.getInt(ResultSetImpl.java:2734)
+	at com.fresco.jdbcTests.JdbcTest.test3(JdbcTest.java:52)
+
+test4(com.fresco.jdbcTests.JdbcTest)  Time elapsed: 0.011 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.fresco.jdbcTests.JdbcTest.test4(JdbcTest.java:78)
+
