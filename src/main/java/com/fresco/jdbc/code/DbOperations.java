@@ -11,45 +11,76 @@ import java.util.List;
 
 import com.fresco.jdbc.code.util.DbUtil;
 
+// import com.fresco.jdbc.code.util.DbUtil;
+
 public class DbOperations {
 	Connection con;
 	ResultSet res;
+	PreparedStatement stat;
 	public DbOperations() {
 		con = DbUtil.getConnection();
 	}
+
 	public boolean insertSubject(String name) throws SQLException {
-		PreparedStatement getIdValue = con.preparedStatement('select id from subject order by desc limit 1');
-		res = getIdValue.executeQuery();
-		res.next();
-		int subId = res.getInt(1);
-
-		PreparedStatement stat = con.preparedStatement('insert into subject values(?,?)');
-		stat.setInt(subId+1);
-		stat.setString('Maths');
-		stat.executeUpdate();
-
-		stat.close();
-		rs.close();
-		conn.close();
-
-		return false;
+		stat = con.prepareStatement("insert into subject (name) values(?)");
+		stat.setString(1, name);
+		int result = stat.executeUpdate();
+		return result > 0 ? true : false;
 	}
+
 	public ArrayList getSubjectById(int id) throws SQLException {
-		return null;
+		ArrayList arr = new ArrayList();
+		stat = con.prepareStatement("select * from subject where id=?");
+		stat.setInt(1, id);
+		res = stat.executeQuery();
+		while (res.next()) {
+			arr.add(res.getInt(1));
+			arr.add(res.getString(2));
+		}
+		return arr;
 	}
+
 	public ResultSet getAllSubjects() throws SQLException {
-		return null;
+		stat = con.prepareStatement("select * from subject");
+		res = stat.executeQuery();
+		return res;
 	}
+
 	public boolean insertStudent(String student_name, float score, String name) throws SQLException {
-		return false;
-		
+		PreparedStatement pstat = con.prepareStatement("select id from subject where name = ?");
+		pstat.setString(1, name.trim());
+		res = pstat.executeQuery();
+		int subId = 0;
+		while(res.next()) {
+			subId = res.getInt(1);
+		}
+
+		stat = con.prepareStatement("insert into student (student_name,score,subject_id) values(?,?,?)");
+		stat.setString(1, student_name);
+		stat.setFloat(2, score);
+		stat.setInt(3, subId);
+		int result = stat.executeUpdate();
+		return result > 0 ? true : false;
 	}
+
 	public ArrayList getStudentyId(int id) throws SQLException {
-	   return null;
+		ArrayList arr = new ArrayList();
+		stat = con.prepareStatement("select * from student where id=?");
+		stat.setInt(1, id);
+		res = stat.executeQuery();
+		while (res.next()) {
+			arr.add(res.getInt(1));
+			arr.add(res.getString(2));
+			arr.add(res.getFloat(3));
+			arr.add(res.getInt(4));
+		}
+		return arr;
 	}
+
 	public ResultSet getAllStudents() throws SQLException {
-		
-		return null;
+		stat = con.prepareStatement("select * from student");
+		res = stat.executeQuery();
+		return res;
 	}
-	
+
 }
